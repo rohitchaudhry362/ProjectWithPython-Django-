@@ -1,0 +1,43 @@
+{% extends "base1.html" %}
+
+{% block content %}
+<div class="ui main container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}} message">
+                    <i class="close icon"></i>
+                    {{message | safe}}
+                </div>
+            {% endfor %}
+        {% endif %}
+</div>
+
+<div class="container">
+  <center><h1>Product</h1></center>
+
+
+  <center><b>Name: </b><b>{{pro.PName}}</b></center><br><center><b>Price: </b><b>{{pro.Price}}</b></center> <br><center><img src='../../../media/{{pro.PImg}}' height="200px" width="200px"></center> <br>
+
+
+  <form method="POST" action="">
+    <input type="hidden" value="1" name="product">
+    <br>
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+    <input type="hidden" name="Pid" value="{{pro.Pid}}" required="" id="id_Pid">
+
+    <input type="hidden" name="Price" value="{{pro.Price}}" required="" id="id_Price"><br>
+    <center>
+    <label for="id_quantity">Quantity:</label><input type="number" name="quantity" required="" id="id_quantity">
+    </center>
+    <br>
+
+    <center>
+    <input type="submit" value="Add to CART?" class="btn btn-success">
+    </center>
+  </form>
+
+
+  </div>
+{% endblock %}

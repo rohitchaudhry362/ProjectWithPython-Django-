@@ -1,0 +1,35 @@
+{% extends 'base6.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  <div class="x_content">
+    <div class="row">
+  {% for Stream in Stream %}
+
+      <div class="caption">
+      <p><center><b>{{Stream.StreamName}}</b></center>
+        <center>
+      <a href="/Librarian/ShowBookForOrder1/?StreamId={{Stream.StreamId}}"><input class="btn btn-round btn-primary" type="button" value="ShowBook"> </a>
+      </center>
+      </p>
+      </div>
+
+  {% endfor %}
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+<style>
+  .container.body{
+    background: url(../../media/main_bg.png) no-repeat; background-size: cover; background-position: right;
+  }
+  input{
+    width:100%;
+    margin-bottom:20px !important;
+  }
+  .login_content form {
+    background: rgba(255, 255, 255, 0.2196078431372549);
+    padding: 20px 15px;
+}
+.container.login_section:before {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+ul{    padding-left: 15px;}
+.login_content{padding-top:0;}
+.login_wrapper{margin-top:0 !important;}
+.login_content form {
+  background: rgba(255, 255, 255, 0.2196078431372549);
+  padding: 20px 15px;
+}
+form span, form ul li{color: #fff; text-shadow: none; font-style: italic; text-align:left;}
+.login_content form p, .login_content form .text_css{color: #fff; letter-spacing:1; text-shadow:none;}
+input{
+background: transparent !important;
+box-shadow: none !important;
+border: none !important;
+border-bottom: 1px solid #fff !important;
+height: 30px !important;
+color: #fff !important;
+}
+.login_content h2{text-shadow:none; color: #fff;}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+color: #fff;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+color: #fff;
+}
+input.btn.btn-round.btn-default {
+  border: 1px solid #fff !important;
+  box-shadow: none;
+  padding-top:4px !important;
+}
+.login_content h1:after, .login_content h1:before{display: none;}
+</style>
+{% extends 'base9.html' %}
+
+
+{% block content %}
+<div class="ui main container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="ui {{message.extra_tags}} {{message.tags}} message">
+                    <i class="close icon"></i>
+                    {{message | safe}}
+                </div>
+            {% endfor %}
+        {% endif %}
+</div>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+<div>
+
+
+<div class="container login_section" style="background: url(../../media/main_bg.png) no-repeat; max-height:100%; height: 620px; background-size: cover;    background-position: right;">
+<div class="login_wrapper">
+    <div class="animate form login_form">
+      <section class="login_content">
+
+          <form method="post">
+            <h2>Sign up</h2>
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+            <input type="hidden" name="user" value="{{username}}" maxlength="30" required="" id="id_user">
+        <input type="text" placeholder="First name" name="first_name" maxlength="30" required="" id="id_first_name">
+        <input type="text" placeholder="Last name" name="last_name" maxlength="30" required="" id="id_last_name">
+        <input type="email" placeholder="Email" name="email" maxlength="254" required="" id="id_email">
+        <input type="number" placeholder="Uniqueid provided by Admin" name="uniqueid" placeholder="provided by admin" required="" id="id_uniqueid">
+        <input type="text" placeholder="Phone number" name="phone_number" placeholder="Format:+91xxxxxxxxxx" required="" id="id_phone_number">
+        <input type="file" name="userimg" accept="image/*" id="id_userimg">
+            <button type="submit" class="btn btn-round btn-success">Register</button>
+          </form>
+
+
+</section>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

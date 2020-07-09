@@ -1,0 +1,43 @@
+{% extends 'base9.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+<div class="x_content">
+    <div class="row">
+  {% for c1 in role %}
+  <div class="col-md-55" style="height:250px;width:500px;">
+    <div class="thumbnail" style="height:250px;width:250px;">
+      <div class="image view view-first" style="height:150px;">
+
+    <img src='../../media/{{c1.roleimg}}' height='100%' width='100%'>
+      </div>
+    <div class="caption">
+    <p><center><b>{{c1.rolename}}</b></center>
+    <center><a href="/users/register/?Roleid={{c1.Roleid}}"><input class="btn btn-round btn-primary" type="button" value="Select"> </a></center>
+
+    </p>
+    </div>
+    </div>
+    </div>
+  {% endfor %}
+
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}

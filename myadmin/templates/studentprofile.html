@@ -1,0 +1,36 @@
+{% extends "base10.html" %}
+
+{% block content %}
+<div class="ui main container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}} message">
+                    <i class="close icon"></i>
+                    {{message | safe}}
+                </div>
+            {% endfor %}
+        {% endif %}
+</div>
+<div class="container">
+    <div class="col-md-55" style="height:250px;width:250px;">
+      <div class="thumbnail" style="height:200px;width:200px;">
+        <div class="image view view-first" style="height:200px;">
+
+      <img src='../../media/{{t.userimg}}' height='100%' width='100%'>
+        </div>
+        </div>
+        </div>
+  <div class="profile" width="300px">
+  <h2>Profile Details</h2>
+  <b>Username:</b>{{t.user}}<br>
+  <b>Firstname:</b>{{t.first_name}}<br>
+  <b>Lastname:</b>{{t.last_name}}<br>
+  <b>Email Address:</b>{{t.email}}<br>
+  <b>Phone:</b>{{t.phone_number}}<br>
+  <a href="/myadmin/updatebalance/?enroll={{enroll}}"><input type="button" class="btn btn-round btn-primary" value="update balance"></a>
+  <!-- <a href="/myadmin/showdocs/?enroll={{enroll}}"><input type="button" class="btn btn-round btn-primary" value="show docs"></a> -->
+  </div>
+
+</div>
+
+{%endblock%}

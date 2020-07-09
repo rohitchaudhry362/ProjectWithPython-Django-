@@ -1,0 +1,51 @@
+{% extends 'base5.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <table class="table table-striped jambo_table bulk_action">
+    <tr>
+      <td><b>BookName</b></td>
+      <td><b>Price</b></td>
+      <td><b>Book Edition</b></td>
+      <td><b>Cover Image</b></td>
+      <td><b>Serial Number</b></td>
+      <td><b>Author Name/Publisher</b></td>
+    </tr>
+  {% for c1 in BooksForStream %}
+  <tr>
+    <td><b> {{c1.BookName}}</b></td>
+    <td><b> {{c1.Price}}</b></td>
+    <td><b> {{c1.Edition}}</b></td>
+
+    <td><img src='../../media/{{c1.CoverPageImg}}' height='80' width='80'></td>
+    <td><b> {{c1.BookSerialNumber}}</b></td>
+    <td><b> {{c1.BookAuthorName}}</b></td>
+    <td> <a href="/Library/EditBook/?BookId={{c1.BookId}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+    <td> <a href="/Library/DeleteBook/?BookId={{c1.BookId}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+    <td> <a href="/Library/AddBookStock/?BookId={{c1.BookId}}"><input class="btn btn-round btn-default" type="button" value="Update Stock"> </a></td>
+    <td> <a href="/Library/ShowStock/?BookId={{c1.BookId}}"><input class="btn btn-round btn-default" type="button" value="Show Stock"> </a></td>
+
+
+
+  </tr>
+
+  {% endfor %}
+    </table>
+<a href="/Library/BookCategoryIndex"><input class="btn btn-round btn-default" type="button" value="Back To Book Categories"> </a>
+</div>
+
+
+{% endblock %}

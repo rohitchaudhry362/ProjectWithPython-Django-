@@ -1,0 +1,49 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <div class="x_content">
+    <div class="right" style="position:relative;left:800px;">
+    <a href="/Stationary/StationaryCart"><input class="btn btn-round btn-primary" type="button" value="Show cart"> </a>
+    <a href="/Stationary/ClearCart"><input class="btn btn-round btn-primary" type="button" value="Clear Cart"> </a>
+    </div>
+    <div class="row">
+  {% for c1 in cat %}
+  <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+    <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+      <div class="image view view-first" style="height:150px;">
+        <img src='../../media/{{c1.CatImg}}' height='100%' width='100%'>
+      </div>
+    <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+
+  <p><center><b>{{c1.CatName}}</b></center>
+    <center> <a href="/Stationary/Scategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a>
+      </center>
+    </p>
+    </div>
+    </div>
+    </div>
+
+
+  {% endfor %}
+
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}

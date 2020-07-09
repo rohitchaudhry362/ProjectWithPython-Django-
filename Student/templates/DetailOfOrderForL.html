@@ -1,0 +1,37 @@
+{% extends 'base4.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <table class="table">
+    <tr><th><b>Date</b></th><th><b>Book Id</b></th><th><b>BookName</b></th><th><b>Serial Number</b></th><th><b>Stock Number<b></th>
+    <tr><th></th><th></th><th></th></tr>
+  {% for c1 in data %}
+  <tr>
+    <td><b> {{date}} </b></td>
+    <td><b> {{c1.BookId}}</b></td>
+    <td><b> {{c1.BookName}}</b></td>
+    <td><b> {{c1.BookSerialNumber}}</b></td>
+    <td><b>{{c1.BookStockSerial}}</td></b>
+  </tr>
+
+  {% endfor %}
+    </table>
+
+<a href="/Student/OrderShowForL/"><input class="btn btn-round btn-default" type="button" value="Back"> </a>
+</div>
+
+
+{% endblock %}

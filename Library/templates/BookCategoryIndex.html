@@ -1,0 +1,38 @@
+{% extends 'base5.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <table class="table table-striped jambo_table bulk_action">
+    <tr><th><h3>Category Name</h3></th>
+  {% for c1 in s %}
+  <tr>
+    <td><b> {{c1.BookCatName}}</b></td>
+    <td><img src='../../media/{{c1.BookCategoryImg}}' height='80' width='80'></td>
+    <td> <a href="/Library/EditBookCategory/?BookCatId={{c1.BookCatId}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+    <td> <a href="/Library/DeleteBookCategory/?BookCatId={{c1.BookCatId}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+    <td> <a href="/Library/StreamForBookCat/?BookCatId={{c1.BookCatId}}"><input class="btn btn-round btn-primary" type="button" value="Show Stream"> </a></td>
+  </tr>
+
+  {% endfor %}
+    </table>
+  <a href="/Library/AddBookCategory/"><button class="btn btn-round btn-primary">Add Category</button></a>
+  <a href="/Library/AddStream/"><button class="btn btn-round btn-primary">Add Stream</button></a>
+  
+  <a href="#"><button class="btn btn-round btn-primary">Send query to admin</button></a>
+</div>
+
+
+{% endblock %}

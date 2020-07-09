@@ -1,0 +1,48 @@
+{% extends "base4.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+
+<form method="POST" enctype="multipart/form-data">
+
+  {% csrf_token %}
+  <table class="table">
+    <form method="POST" enctype="multipart/form-data">
+
+      <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+      <table class="table">
+    <tbody><tr><td><input type="hidden" name="enroll" value="{{object}}" required="" id="id_enroll">
+
+
+    </td></tr>
+    <tr><th><label for="id_adharcard">Adharcard:</label></th><td><input type="file" name="adharcard" id="id_adharcard"></td></tr>
+    <tr><th><label for="id_result10">Result10:</label></th><td><input type="file" name="result10" id="id_result10"></td></tr>
+    <tr><th><label for="id_result12">Result12:</label></th><td><input type="file" name="result12" id="id_result12"></td></tr>
+    <tr><th><label for="id_semresult1">Semresult1:</label></th><td><input type="file" name="semresult1" id="id_semresult1"></td></tr>
+    <tr><th><label for="id_semresult2">Semresult2:</label></th><td><input type="file" name="semresult2" id="id_semresult2"></td></tr>
+    <tr><th><label for="id_semresult3">Semresult3:</label></th><td><input type="file" name="semresult3" id="id_semresult3"></td></tr>
+    <tr><th><label for="id_semresult4">Semresult4:</label></th><td><input type="file" name="semresult4" id="id_semresult4"></td></tr>
+    <tr><th><label for="id_semresult5">Semresult5:</label></th><td><input type="file" name="semresult5" id="id_semresult5"></td></tr>
+    <tr><th><label for="id_semresult6">Semresult6:</label></th><td><input type="file" name="semresult6" id="id_semresult6"></td></tr>
+    <tr><th><label for="id_semresult7">Semresult7:</label></th><td><input type="file" name="semresult7" id="id_semresult7"></td></tr>
+    <tr>
+      <td><a href="/Student/index_view/"><input class="btn btn-round btn-default" type="button" value="Back"> </a></td>
+      <td><input type="submit" value="Submit" class="btn btn-round btn-primary"></td>
+
+    </tr>
+    </tbody></table>
+    </form>
+  </div>
+
+
+{%endblock%}

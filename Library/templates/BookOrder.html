@@ -1,0 +1,48 @@
+{% extends 'base5.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+<div class="x_content">
+  <div class="right" style="position:relative;left:800px;">
+  <a href="/Library/BookCart1/"><input class="btn btn-round btn-primary" type="button" value="Show cart"> </a>
+  <!-- <a href="/Library/ClearCart"><input class="btn btn-round btn-primary" type="button" value="Clear Cart"> </a> -->
+  </div>
+  <div class="row">
+  {% for book in book %}
+  <div class="col-md-55" style="height:250px;width:250px;">
+    <div class="thumbnail" style="height:240px;width:200px;">
+      <div class="image view view-first" style="height:150px;">
+
+    <img src='../../media/{{book.BookCategoryImg}}' height='100%' width='100%'>
+      </div>
+    <div class="caption">
+    <p><center><b>{{book.BookCatName}}</b></center>
+
+    <center><a href="/Library/BookOrderStream/?BookCatId={{book.BookCatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+    </p>
+    </div>
+    </div>
+    </div>
+  {% endfor %}
+
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}

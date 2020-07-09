@@ -1,0 +1,61 @@
+{% extends 'base5.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  <div class="x_content">
+    <div class="row">
+  {% for c1 in Book2 %}
+  <div class="col-md-55" style="height:500px;width:250px;">
+    <div class="thumbnail" style="height:360px;width:250px;">
+      <div class="image view view-first" style="height:250px;">
+        <center><img src='../../media/{{Book1.CoverPageImg}}' height='100%' width='80%'></center>
+      </div>
+      <div class="caption">
+      <table>
+
+        <tr><td>BookStockSerial</td><td><b><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{c1.BookStockSerial}}</center></b></td></tr>
+        <tr><td>Is Available?</td><td><b><center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    {% if c1.Issued %}
+    No
+    {% else %}
+    Yes
+    {% endif %}
+        </center></b></td></tr>
+
+        </table>
+        <center>
+          {% if c1.Issued %}
+          {% else %}
+      <a href="/Library/AddToCart/?BookStockId={{c1.BookStockId}}"><input class="btn btn-round btn-primary" type="button" value="Add"> </a>
+          {% endif %}
+      </center>
+
+      </div>
+      </div>
+      </div>
+  {% endfor %}
+
+
+
+
+<a href="/Library/ShowBook/?StreamId={{temp}}"><input class="btn btn-round btn-default" type="button" value="Back To Books"> </a>
+</div>
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

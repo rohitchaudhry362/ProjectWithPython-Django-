@@ -1,0 +1,19 @@
+{% extends "base6.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+<h1>Thanks for the Order</h1>
+  </div>
+<a href="/Librarian/BookOrder1"><input class="btn btn-round btn-default" type="button" value="Back to categories"> </a>
+
+{%endblock%}

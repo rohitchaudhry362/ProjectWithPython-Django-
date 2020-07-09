@@ -1,0 +1,48 @@
+{% extends 'base6.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  <div class="x_content">
+    <div class="row">
+  {% for p1 in Books %}
+  <div class="col-md-55" style="height:250px;width:250px;">
+    <div class="thumbnail" style="height:460px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+      <div class="image view view-first" style="height:250px;">
+        <center><img src='../../media/{{p1.CoverPageImg}}' height='100%' width='80%'></center>
+      </div>
+      <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+      <table>
+        <tr>
+      <td>BookName:</td><td><b>{{p1.BookName}}</b></td></tr>
+        <tr><td>AuthorName:</td><td><b>{{p1.BookAuthorName}}</b></td></tr>
+        <tr><td>Edition:</td><td><b>{{p1.Edition}}</b></td></tr>
+        <tr><td>Serial No:</td><td><b>{{p1.BookSerialNumber}}</b></td></tr>
+        <tr><td>Price:</td><td><b>{{p1.Price}}</b></td></tr>
+
+        </table>
+        <center>
+      <a href="/Librarian/ShowStockForOrder1/?BookId={{p1.BookId}}"><input class="btn btn-round btn-primary" type="button" value="Add"> </a>
+      </center>
+
+      </div>
+      </div>
+      </div>
+  {% endfor %}
+
+
+</div>
+</div>
+</div>
+
+{% endblock %}

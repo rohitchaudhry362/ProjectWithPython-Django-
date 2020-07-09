@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ui main container">
+  {% if messages %}
+{% for message in messages %}
+<div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+{% endfor %}
+{% endif %}
+
+{% if form.errors %}
+<div class="alert alert-error">
+<h4>Please fix the following errors</h4>
+<ul>
+  {% for field in form %}
+    {% if field.errors %}
+      {% for error in field.errors %}
+        <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+</ul>
+{% if form.non_field_errors %}
+  {{ form.non_field_errors }}
+{% endif %}
+</div>
+{% endif %}
+</div>
+
+<div class="container">
+  <center><h1>Product</h1></center>
+
+
+  <center><b>Name: </b><b>{{pro.PName}}</b></center><br><center><b>Price: </b><b>{{pro.Price}}</b></center> <br><center><img src='../../../media/{{pro.PImg}}' height="200px" width="200px"></center> <br>
+
+
+  <form method="POST" action="">
+    <input type="hidden" value="1" name="product">
+    <br>
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+    <input type="hidden" name="Pid" value="{{pro.Pid}}" required="" id="id_Pid">
+
+    <input type="hidden" name="Price" value="{{pro.Price}}" required="" id="id_Price"><br>
+    <center>
+    <label for="id_quantity">Quantity:</label><input type="number" name="quantity" required="" id="id_quantity" placeholder="must be atleast 1" >
+    </center>
+    <br>
+    <center>
+    <input type="submit" value="submit">
+    </center>
+    </form>
+
+
+  </div>
+{% endblock %}

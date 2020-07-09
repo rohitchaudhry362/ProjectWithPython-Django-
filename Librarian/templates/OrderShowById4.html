@@ -1,0 +1,36 @@
+{% extends 'base6.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+
+  <table class="table">
+
+      <tr><td><b>StudentId<b></td><td><b>DateTime</b></td></tr>
+  {% for c1 in s1 %}
+  <tr>
+    <td><b> {{c1.UserId}}</b></td>
+    <td><b> {{c1.DateOfOrder}}</b></td>
+    <td><a href="/Librarian/DetailOfOrderById3/?LibOrderId={{c1.LibOrderId}}"><input class="btn btn-round btn-primary" type="button" value="Detail"> </a></td>
+
+  </tr>
+
+  {% endfor %}
+    </table>
+    <a href="/Librarian/OrderShow4/"><input class="btn btn-round btn-default" type="button" value="back to history"> </a>
+  <div>
+
+
+{% endblock %}

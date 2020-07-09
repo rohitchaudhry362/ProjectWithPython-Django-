@@ -1,0 +1,23 @@
+{% extends "base4.html" %}
+
+{% block content %}
+<div class="ui main container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}} message">
+                    <i class="close icon"></i>
+                    {{message | safe}}
+                </div>
+            {% endfor %}
+        {% endif %}
+</div>
+<div class="container">
+<h3>Hello user,<br><br>
+  You have already uploaded the documents once.<br><br>
+  You can update from the option given below.<br><br>
+    <a href="/Student/updatedoc/"><input class="btn btn-round btn-default" type="button" value="update documents"> </a>
+</h3>
+
+</div>
+
+{%endblock%}

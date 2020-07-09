@@ -1,0 +1,36 @@
+{% extends 'base5.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+
+  <table class="table table-striped jambo_table bulk_action">
+
+      <tr><td><b>OrderID</b></td><td><b>StudentId<b></td><td><b>DateTime</b></td></tr>
+  {% for c1 in s1 %}
+  <tr>
+    <td><b> {{c1.LibOrderId}}</b></td>
+    <td><b> {{c1.UserId}}</b></td>
+    <td><b> {{c1.DateOfOrder}}</b></td>
+    <td><a href="/Library/DetailsForOrderById3/?LibOrderId={{c1.LibOrderId}}"><input class="btn btn-round btn-primary" type="button" value="Detail"> </a></td>
+
+  </tr>
+
+  {% endfor %}
+    </table>
+  <div>
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+<style>
+  .container.login_section{position:relative;}
+  .container.login_section:before{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:100%;
+    background:  rgba(0, 0, 0, 0.5);
+  }
+  .login_wrapper{margin-top:0 !important;}
+  .login_content form {
+    background: rgba(255, 255, 255, 0.2196078431372549);
+    padding: 20px 15px;
+}
+.login_content form p, .login_content form .text_css{color: #fff; letter-spacing:1; text-shadow:none;}
+input{
+  background: transparent !important;
+  box-shadow: none !important;
+border: none !important;
+border-bottom: 1px solid #fff !important;
+height: 30px !important;
+color: #fff !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #fff;
+}
+input.btn.btn-round.btn-default {
+    border: 1px solid #fff !important;
+    box-shadow: none;
+    padding-top:4px !important;
+}
+.login_content h1:after, .login_content h1:before{display: none;}
+</style>
+
+{% extends 'base9.html' %}
+{% block content %}
+<div class="ui main container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+</div>
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+<div>
+    <div class="container login_section" style="background: url(../../media/main_bg.png) no-repeat; height: 620px; background-size: cover;    background-position: right;">
+<div class="login_wrapper">
+  <div class="animate form login_form">
+    <section class="login_content">
+      <form method="post">
+    <h1 style="color:white">Login</h1>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+    <input type="text" name="username" autofocus="" required="" id="id_username" placeholder="Enter Your Username" autocomplete="off">
+   <input type="password" name="password" required="" id="id_password" placeholder="Enter Your Password" autocomplete="off">
+    <button type="submit" class="btn btn-round btn-success">Sign in</button><br>
+    <h6 class="text_css" style="color:white">Forget Password?</h6>
+    <a href="/users/mobilenumber/"><input class="btn btn-round btn-default" type="button" value="Reset using mobile no"> </a>
+    <div class="separator">
+      <p class="change_link"><h6 class="text_css">New to site?</h6>
+                  <a href="/users/register/" class="to_register"><input class="btn btn-round btn-default" type="button" value="Create Account"></a>
+                </p>
+                <div>
+                    <!-- <h1 class="text-primary"><i class="fa fa-paw"></i> SAL Engineering &amp; Technical Institute</h1> -->
+
+                  </div>
+                  </div>
+  </form>
+
+  </section>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

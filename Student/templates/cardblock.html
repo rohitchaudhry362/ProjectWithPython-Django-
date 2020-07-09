@@ -1,0 +1,27 @@
+{% extends "base4.html" %}
+
+{% block content %}
+<div class="ui main container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}} message">
+                    <i class="close icon"></i>
+                    {{message | safe}}
+                </div>
+            {% endfor %}
+        {% endif %}
+</div>
+<div class="container">
+  <div class="right" style="position:relative;left:300px;top:150px;">
+<h3>Do you want to block/unblock your card?
+</h3>
+<form method="POST">
+    {% csrf_token %}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/Student/index_view/"><input class="btn btn-round btn-default" type="button" value="back"> </a>
+    <input type="submit" value="Yes" class="btn btn-round btn-primary">
+</form>
+</div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <table class="table table-striped">
+    <tr><th><h3>Product name</h3></th>
+  {% for c1 in Pid1 %}
+  <tr>
+    <td><b> {{c1.PName}}</b></td>
+    <td> <a href="/Canteen/edit_Ccategory/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+    <td> <a href="/Canteen/delete_Ccategory/?CatId={{c1.CatId}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+    <td> <a href="/Canteen/CproductbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></td>
+  </tr>
+
+  {% endfor %}
+    </table>
+  <a href="/Canteen/add_Ccategory/"><button class="btn btn-round btn-primary">Add Category</button></a>
+  <a href="/Canteen/add_Cproduct/"><button class="btn btn-round btn-primary">Add product</button></a>
+  <a href="#"><button class="btn btn-round btn-primary">Send query to admin</button></a>
+</div>
+
+
+{% endblock %}

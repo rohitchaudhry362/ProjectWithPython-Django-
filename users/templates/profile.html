@@ -1,0 +1,24 @@
+{% extends 'base9.html' %}
+
+{% block content %}
+  <h2>Profile</h2>
+  <form method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+    <p><label for="id_userdata">Userdata:</label> <select name="userdata" required="" id="id_userdata">
+  <option value="" selected="">---------</option>
+
+  <option value="1">admin</option>
+
+  <option value="27">nilay</option>
+
+  <option value="28">bhuvan</option>
+
+  <option value="29">Mihir</option>
+
+</select></p>
+<p><label for="id_Roleid">Roleid:</label> <input type="number" name="Roleid" value="0" required="" id="id_Roleid"></p>
+<p><label for="id_DOB">Dob:</label> <input type="text" name="DOB" id="id_DOB"></p>
+<p><label for="id_userimg">Userimg:</label> <input type="file" name="userimg" accept="image/*" id="id_userimg"></p>
+    <button type="submit">Update</button>
+  </form>
+{% endblock %}

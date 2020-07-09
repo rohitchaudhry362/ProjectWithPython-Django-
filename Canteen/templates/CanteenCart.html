@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+  <div class="container">
+
+    <table class="table">
+      <div class="right" style="position:relative;left:850px;">
+      <a href="/Canteen/Ccategory_order"><input class="btn btn-round btn-default" type="button" value="Back to categories"> </a>
+      </div>
+      <center><h3>Final Cart</h3></center>
+    <tr>
+      <td><b>Product Name</b></td>
+      <td><b>Price</b></td>
+      <td><b>Quantity</b></td>
+      <td><b>P*Q</b></td>
+
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% for c1 in cat %}
+    <tr>
+      <td><b> {{c1.Pid}}</b></td>
+      <td><b> {{c1.Price}}</b></td>
+      <td><b>{{c1.quantity}}</b></td>
+
+      <td><b>{% widthratio c1.Price 1 c1.quantity %}</b></td>
+      <td><a href="/Canteen/EditFromCart/?Pid={{c1.Pid_id}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+      <td><a href="/Canteen/DeleteFromCart/?Pid={{c1.Pid_id}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+    </tr>
+
+    {% endfor %}
+      </table>
+      <div style="position: relative;
+  left: 415px;
+  color:black;">
+      <b>Total amount to be paid:</b> <b>{{add}}</b>
+      </div>
+
+      <div style="position: relative;
+  left: 775px;">
+
+      <a href="/Canteen/PlaceOrder/"><input class="btn btn-round btn-primary" type="button" value="Place Order"> </a>
+      </div>
+ 
+  </div>
+
+
+  {% endblock %}

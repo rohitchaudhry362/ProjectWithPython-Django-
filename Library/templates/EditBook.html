@@ -1,0 +1,54 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+  <form method="POST" enctype="multipart/form-data">
+    {% if BookId %}
+  <input type="hidden" value="{{BookId}}" name="BookId">
+  {% endif %}
+
+
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    <table class="table">
+  <tbody><tr><td><input type="hidden" name="BookCatId" value="{{BookCatIdName}}" required="" id="id_BookCatId">
+    </td></tr>
+  <tr><td><input type="hidden" name="StreamId" value="{{StreamIdName}}" required="" id="id_StreamId">
+    </td></tr>
+    <tr><th><label for="id_BookName">BookName:</label></th><td><input type="text" name="BookName" value="{{instance.BookName}}" maxlength="100" required="" id="id_BookName"></td></tr>
+    <tr><th><label for="id_Price">Price:</label></th><td><input type="number" name="Price" value='{{instance.Price}}' required="" id="id_Price"></td></tr>
+    <tr><th><label for="id_Edition">Edition:</label></th><td><input type="number" name="Edition" value='{{instance.Edition}}'id="id_Edition"></td></tr>
+    <tr><th><label for="id_CoverPageImg">CoverPageImg:</label></th>
+    <td><b>Current:{{instance.CoverPageImg}}</b><input type="file" name="CoverPageImg" accept="image/*" value='{{instance.CoverPageImg}}'id="id_CoverPageImg">   </td>
+    </tr>
+
+    <tr><th><label for="id_BookSerialNumber">BookSerialNumber:</label></th><td><input type="text" name="BookSerialNumber" maxlength="100" value="{{instance.BookSerialNumber}}" id="id_BookSerialNumber"></td></tr>
+
+    <tr><th><label for="id_BookAuthorName">BookAuthorName/Publisher:</label></th><td><input type="text" name="BookAuthorName" maxlength="100" value='{{instance.BookAuthorName}}'id="id_BookAuthorName"></td></tr>
+
+    <tr>
+
+    {% if BookId %}
+    <td><input type="submit" value="Update" class="btn btn-round btn-primary"></td>
+    {% else %}
+    <td><input type="submit" value="Create" class="btn btn-round btn-primary"></td>
+    {% endif %}
+  </tr>
+
+  </tbody></table>
+  </form>
+
+  </div>
+
+
+{%endblock%}

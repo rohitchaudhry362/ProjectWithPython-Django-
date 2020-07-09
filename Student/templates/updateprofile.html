@@ -1,0 +1,31 @@
+{% extends "base4.html" %}
+
+{% block content %}
+
+<div class="container">
+  <div class="x_content">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+  <div class="right" style="position:relative;left:800px;">
+  <a href="/Student/updatesem/?enroll={{enroll}}"><input class="btn btn-round btn-primary" type="button" value="Update Semester"> </a>
+  </div>
+  <form method="POST" enctype="multipart/form-data">
+
+  {{form.as_p}}
+  {% csrf_token %}
+
+    <input type="submit" value="Update" class="btn btn-round btn-primary">
+
+  </form>
+
+</div>
+  </div>
+
+
+{%endblock%}

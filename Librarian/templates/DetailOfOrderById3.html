@@ -1,0 +1,41 @@
+{% extends 'base6.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <table class="table">
+    <tr><th><b>Book Id</b></th><th><b>Book Name</b></th><th><b>Serial Number</b></th><th><b>Stock Number<b></th><th>IsReturned</th></tr>
+    <tr><th></th><th></th><th></th><th></th></tr>
+  {% for c1 in data %}
+  <tr>
+    <td><b> {{c1.BookId}}</b></td>
+    <td><b> {{c1.BookName}}</b></td>
+    <td><b> {{c1.BookSerialNumber}}</b></td>
+    <td><b>{{c1.BookStockSerial}}</b></td>
+    <td><b>Hello</b></td>
+    {% if c1.IsReturned %}
+    <td>Returned</td>
+    {% else %}
+    <td><a href="/Librarian/ReturnBook1/?BookStockSerial={{c1.BookStockSerial}}"><input class="btn btn-round btn-primary" type="button" value="Return"></a></td>
+    {% endif %}
+  </tr>
+
+  {% endfor %}
+    </table>
+    <a href="/Librarian/OrderShow4/"><input class="btn btn-round btn-default" type="button" value="back to history"> </a>
+</div>
+
+
+{% endblock %}

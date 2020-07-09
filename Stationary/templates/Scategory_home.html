@@ -1,0 +1,37 @@
+{% extends "base1.html" %}
+
+{% block content %}
+<div class="ui main container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}} message">
+                    <i class="close icon"></i>
+                    {{message | safe}}
+                </div>
+            {% endfor %}
+        {% endif %}
+</div>
+<div class="container">
+  <h3><marquee>Hello, this is stationary homepage.
+    <br><br>
+    Go through the left navigation menu</marquee></h3><br><br>
+    <div class="col-md-55" style="height:250px;width:250px;">
+      <div class="thumbnail" style="height:150px;width:200px;">
+        <div class="image view view-first" style="height:150px;">
+
+      <img src='../../media/{{data.userimg}}' height='100%' width='100%'>
+        </div>
+        </div>
+        </div>
+  <div class="profile" width="300px">
+  <h2>Profile Details</h2>
+  <b>Username:</b>{{data.user}}<br>
+  <b>Firstname:</b>{{data.first_name}}<br>
+  <b>Lastname:</b>{{data.last_name}}<br>
+  <b>Email Address:</b>{{data.email}}<br>
+  <b>Phone:</b>{{data.phone_number}}<br>
+  </div>
+
+</div>
+
+{%endblock%}

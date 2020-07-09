@@ -1,0 +1,62 @@
+{% extends "base6.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+  <div class="container">
+    <table class="table">
+      <center><h3>Final Cart</h3></center>
+    <tr>
+      <td><b>Book Id</b></td>
+      <td><b>Book Name</b></td>
+      <td><b>AuthorName</b></td>
+      <td><b>Edition</b></td>
+      <td><b>Serial Number</b></td>
+      <td><b>Book Stock Serial</b></td>
+
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    {% for c1 in instance %}
+    <tr>
+      <td><b> {{c1.BookId}}</b></td>
+      <td><b> {{c1.BookName}}</b></td>
+      <td><b> {{c1.BookAuthorName}}</b></td>
+      <td><b>{{c1.Edition}}</b></td>
+      <td><b>{{c1.BookSerialNumber}}</b></td>
+      <td><b>{{c1.BookStockSerial}}</b></td>
+
+
+      <td><a href="/Librarian/DeleteFromCart1/?BookStockSerial={{c1.BookStockSerial}}"><input class="btn btn-round btn-primary" type="button" value="Delete"> </a></td>
+    </tr>
+
+    {% endfor %}
+      </table>
+
+
+
+      <div style="position: relative;
+  left: 775px;">
+
+      <a href="/Librarian/PlaceOrder3/"><input class="btn btn-round btn-primary" type="button" value="Place Order"> </a>
+      </div>
+<a href="/Librarian/BookOrder1/"><input class="btn btn-round btn-default" type="button" value="Back"> </a>
+  </div>
+
+
+  {% endblock %}

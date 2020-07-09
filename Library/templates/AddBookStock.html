@@ -1,0 +1,34 @@
+{% extends "base5.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+
+  <form method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+    <table class="table">
+  <tbody><tr><td><input type="hidden" name="BookId" value="{{BookId}}" required="" id="id_BookId">
+    </td></tr>
+  <tr><th><label for="id_BookStockSerial">BookStockSerial:</label></th><td><input type="text" name="BookStockSerial" maxlength="100" required="" id="id_BookStockSerial"></td></tr>
+  <tr><th><label for="id_Issued">Issued:</label></th><td><input type="checkbox" name="Issued" id="id_Issued"></td></tr>
+  <tr>
+    <td><a href="/Library/BookCategoryIndex"><input class="btn btn-round btn-default" type="button" value="Back"> </a></td>
+
+    <td><input type="submit" value="Update" class="btn btn-round btn-primary"></td>
+
+  </tr>
+  </tbody></table>
+  </form>
+  </div>
+
+
+{%endblock%}

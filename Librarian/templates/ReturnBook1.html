@@ -1,0 +1,36 @@
+{% extends "base6.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+
+  <form method="POST" enctype="multipart/form-data">
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{csrf_token}}">
+    <table class="table">
+      <h3>Do you want to return book for stock {{BookStockSerial}}?</h3>
+  <tbody><tr><th></th><td><input type="hidden" name="DateOfOrder" id="id_DateOfOrder" value="{{dateoforder|date:"SHORT_DATE_FORMAT"}}"></td></tr>
+
+  <tr><td><input type="hidden" name="BookStockSerial" value="{{BookStockSerial}}" maxlength="100" required="" id="id_BookStockSerial"></td></tr>
+  <tr>
+
+
+
+    <td><input type="submit" value="Return" class="btn btn-round btn-primary"></td>
+
+  </tr>
+  </tbody></table>
+  </form>
+  </div>
+
+
+{%endblock%}

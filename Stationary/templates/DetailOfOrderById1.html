@@ -1,0 +1,39 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <table class="table">
+    <tr><th><b>Product Name</b></th><th><b>Price</b></th><th><b>Quantity</b></th><th><b>Total<b></th>
+    <tr><th></th><th></th><th></th></tr>
+  {% for c1 in data %}
+  <tr>
+    <td><b> {{c1.Pid}}</b></td>
+    <td><b> {{c1.Price}}</b></td>
+    <td><b> {{c1.quantity}}</b></td>
+    <td><b>{% widthratio c1.Price 1 c1.quantity %}</b></td>
+  </tr>
+
+  {% endfor %}
+    </table>
+    <div style="position: relative;
+left: 722px;">
+    <b>Total amount to be paid:</b> <b>{{add}}</b>
+    </div>
+<a href="/Stationary/OrderShow1/"><input class="btn btn-round btn-default" type="button" value="Back to history"> </a>
+</div>
+
+
+{% endblock %}

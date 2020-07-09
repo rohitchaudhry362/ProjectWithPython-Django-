@@ -1,0 +1,42 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+
+  <table class="table">
+    <tr><th><h3><marquee>Category Name</marquee></h3></th></tr>
+    <div class='right' style="position:relative;left:615px;">
+      <a href="/Stationary/add_Scategory/"><button class="btn btn-round btn-primary">Add Category</button></a>
+      <a href="/Stationary/add_Sproduct/"><button class="btn btn-round btn-primary">Add product</button></a>
+      <a href="/Stationary/query/"><button class="btn btn-round btn-primary">Send query to admin</button></a>
+    </div>
+
+  {% for c1 in cat %}
+  <tr>
+    <td><b> {{c1.CatName}}</b></td>
+    <td><img src='../../media/{{c1.CatImg}}' height='80' width='80'></td>
+    <td> <a href="/Stationary/edit_Scategory/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+    <td> <a href="/Stationary/delete_Scategory/?CatId={{c1.CatId}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+    <td> <a href="/Stationary/SproductbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></td>
+  </tr>
+
+  {% endfor %}
+    </table>
+
+</div>
+
+
+{% endblock %}

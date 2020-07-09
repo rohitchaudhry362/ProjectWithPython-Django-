@@ -1,0 +1,36 @@
+{% extends "base6.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+
+<form method="POST" enctype="multipart/form-data">
+  {% if StreamId %}
+  <input type="hidden" value="{{StreamId}}" name="StreamId">
+  {% endif %}
+  {% csrf_token %}
+  <table class="table">
+{{form.as_table}}
+<tr>
+  <td><a href="/Librarian/BookCategoryIndex1/"><input class="btn btn-round btn-default" type="button" value="Back"> </a></td>
+  {% if StreamId %}
+  <td><input type="submit" value="Update" class="btn btn-round btn-primary"></td>
+  {% else %}
+  <td><input type="submit" value="Create" class="btn btn-round btn-primary"></td>
+  {% endif %}
+</tr>
+</table>
+</form>
+  </div>
+
+
+{%endblock%}

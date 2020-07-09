@@ -1,0 +1,225 @@
+{% extends 'base10.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+<div class="x_content">
+
+  <div class="row">
+  <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+    <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+      <div class="image view view-first" style="height:150px;">
+
+        {% if docs.adharcard %}
+        <img src='../../media/{{docs.adharcard}}'alt="Not Available" height='100%' width='100%'>
+        {% else %}
+        <h3><br><br>Not Available</h3>
+        {% endif %}
+      </div>
+    <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+    <p><center><b>Aadhar Card</b></center>
+    <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+    </p>
+    </div>
+    </div>
+    </div>
+<!-- ****************************************************************** -->
+<div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+  <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+    <div class="image view view-first" style="height:150px;">
+
+      {% if docs.result10 %}
+      <img src='../../media/{{docs.result10}}'alt="Not Available" height='100%' width='100%'>
+      {% else %}
+      <h3><br><br>Not Available</h3>
+      {% endif %}
+    </div>
+  <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+  <p><center><b>10th result </b></center>
+  <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+  </p>
+  </div>  </div>
+    </div>
+
+  <!-- ****************************************************************** -->
+  <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+    <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+      <div class="image view view-first" style="height:150px;">
+
+        {% if docs.result12 %}
+        <img src='../../media/{{docs.result12}}'alt="Not Available" height='100%' width='100%'>
+        {% else %}
+        <h3><br><br>Not Available</h3>
+        {% endif %}
+      </div>
+    <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+    <p><center><b>12th result</b></center>
+    <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+    </p>
+    </div>  </div>
+      </div>
+
+
+    <!-- ****************************************************************** -->
+    <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+      <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+        <div class="image view view-first" style="height:150px;">
+
+          {% if docs.semresult1 %}
+          <img src='../../media/{{docs.semresult1}}'alt="Not Available" height='100%' width='100%'>
+          {% else %}
+          <h3><br><br>Not Available</h3>
+          {% endif %}
+        </div>
+      <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+      <p><center><b>1st sem result</b></center>
+      <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+      </p>
+      </div>  </div>
+        </div>
+
+
+      <!-- ****************************************************************** -->
+      <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+        <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+          <div class="image view view-first" style="height:150px;">
+        {% if docs.semresult2 %}
+        <img src='../../media/{{docs.semresult2}}'alt="Not Available" height='100%' width='100%'>
+        {% else %}
+        <h3><br><br>Not Available</h3>
+        {% endif %}
+          </div>
+        <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+        <p><center><b>2nd sem result</b></center>
+        <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+        </p>
+        </div>  </div>
+          </div>
+
+
+        <!-- ****************************************************************** -->
+        <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+          <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+            <div class="image view view-first" style="height:150px;">
+
+              {% if docs.semresult3 %}
+              <img src='../../media/{{docs.semresult3}}'alt="Not Available" height='100%' width='100%'>
+              {% else %}
+              <h3><br><br>Not Available</h3>
+              {% endif %}
+            </div>
+          <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+          <p><center><b>3rd sem result</b></center>
+          <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+          </p>
+          </div>  </div>
+            </div>
+
+
+          <!-- ****************************************************************** -->
+          <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+            <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+              <div class="image view view-first" style="height:150px;">
+
+                {% if docs.semresult4 %}
+                <img src='../../media/{{docs.semresult4}}'alt="Not Available" height='100%' width='100%'>
+                {% else %}
+                <h3><br><br>Not Available</h3>
+                {% endif %}
+              </div>
+            <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+            <p><center><b>4th sem result</b></center>
+            <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+            </p>
+            </div>  </div>
+              </div>
+
+
+            <!-- ****************************************************************** -->
+            <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+              <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+                <div class="image view view-first" style="height:150px;">
+
+                  {% if docs.semresult5 %}
+                  <img src='../../media/{{docs.semresult5}}'alt="Not Available" height='100%' width='100%'>
+                  {% else %}
+                  <h3><br><br>Not Available</h3>
+                  {% endif %}
+                </div>
+              <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+              <p><center><b>5th sem result</b></center>
+              <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+              </p>
+              </div>
+            </div>
+            </div>
+
+              <!-- ****************************************************************** -->
+              <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+                <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+                  <div class="image view view-first" style="height:150px;">
+
+                    {% if docs.semresult6 %}
+                    <img src='../../media/{{docs.semresult6}}'alt="Not Available" height='100%' width='100%'>
+                    {% else %}
+                    <h3><br><br>Not Available</h3>
+                    {% endif %}
+                  </div>
+                <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+                <p><center><b>6th sem result</b></center>
+                <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+                </p>
+                </div>
+              </div>
+              </div>
+
+
+                <!-- ****************************************************************** -->
+                <div class="col-md-55" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+                  <div class="thumbnail" style="height:250px;width:250px;background-image: linear-gradient(-65deg, #7a91a8, white);">
+                    <div class="image view view-first" style="height:150px;">
+
+                      {% if docs.semresult7 %}
+                      <img src='../../media/{{docs.semresult7}}'alt="Not Available" height='100%' width='100%'>
+                      {% else %}
+                      <h3><br><br>Not Available</h3>
+                      {% endif %}
+                    </div>
+                  <div class="caption" style="background-image: linear-gradient(-65deg, #7a91a8, white);">
+                  <p><center><b>7th sem result</b></center>
+                  <center><a href="/Canteen/Ccategory_order_productbyId/?CatId={{c1.CatId}}"><input class="btn btn-round btn-primary" type="button" value="Show"> </a></center>
+
+                  </p>
+                  </div>
+    </div>
+    </div>
+
+
+</div>
+</div>
+<a href="/myadmin/studentlist/"><input class="btn btn-round btn-default" type="button" value="Back To Student List"> </a>
+</div>
+
+
+{% endblock %}

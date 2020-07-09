@@ -1,0 +1,45 @@
+{% extends 'base10.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+
+<div class="container">
+  <table class="table">
+    <tr><th><h3><marquee>Queries</marquee></h3></th>
+      <tr><th>Concern</th>
+        <th>Date</th></tr>
+  {% for c1 in queries %}
+  <tr>
+
+    <td><b> {{c1.querytext}}</b></td>
+    <td><b> {{c1.date}}</b></td>
+    <td>
+      <b>
+        {% if c1.isreviewed %}
+          <p>query is reviewed</p>
+        {% else %}
+          <a href="/myadmin/reviewqueries/?queryid={{c1.queryid}}"><input type="button" class="btn btn-round btn-primary" value="Review"></a>
+        {% endif %}
+      </b>
+    </td>
+
+  </tr>
+
+  {% endfor %}
+    </table>
+
+</div>
+
+
+{% endblock %}

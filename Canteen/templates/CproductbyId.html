@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  <a href="/Canteen/Ccategory_index/"><input class="btn btn-round btn-default" type="button" value="Back to categories"> </a>
+  <table class="table">
+  <tr><th>Productname</th><th>Price</th><th>Available</th><th>Image</th><th> Edit</th><th>Delete</th></tr>
+  {% for p1 in Cpro1 %}
+
+  <tr>
+    <td><b>{{p1.PName}}</b></td> <td> <b>{{p1.Price}}</b></td> <td>
+      {% if p1.IsAvailable %}
+        <b>Yes</b>
+      {% else %}
+
+        <b>No</b>
+      {% endif %}
+
+    </td>
+    <td><img src='../../media/{{p1.PImg}}' height='80' width='80'></td>
+    <td> <a href="/Canteen/edit_Cproduct/?Pid={{p1.Pid}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+    <td> <a href="/Canteen/delete_Cproduct/?Pid={{p1.Pid}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+  </tr>
+  {% endfor %}
+    </table>
+
+</div>
+
+
+{% endblock %}

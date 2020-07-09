@@ -1,0 +1,20 @@
+{% extends "base1.html" %}
+
+{% block content %}
+
+<div class="container">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-{{message.tags}} message">
+              <i class="close icon"></i>
+              {{message | safe}}
+          </div>
+      {% endfor %}
+  {% endif %}
+
+<h1>Thanks for the Order</h1>
+<a href="/Stationary/Scategory_order/"><input class="btn btn-round btn-default" type="button" value="Back to categories"> </a>
+  </div>
+
+
+{%endblock%}

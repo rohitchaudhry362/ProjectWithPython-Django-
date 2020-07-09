@@ -1,0 +1,33 @@
+{% extends 'base5.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  <table class="table table-striped jambo_table bulk_action">
+  <tr><th>Stream Name</th><th> Edit</th><th>Delete</th></tr>
+  {% for p1 in Cpro1 %}
+
+  <tr>
+    <td><b>{{p1.StreamName}}</b></td>
+    <td> <a href="/Library/EditStream/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+    <td> <a href="/Library/DeleteStream/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+    <td> <a href="/Library/AddBook/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-primary" type="button" value="Add Books"> </a></td>
+    <td> <a href="/Library/ShowBook/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-primary" type="button" value="Show Books"> </a></td>
+  </tr>
+  {% endfor %}
+    </table>
+<a href="/Library/BookCategoryIndex"><input class="btn btn-round btn-default" type="button" value="Back"> </a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base4.html' %}
+
+{% block content %}
+<div class="ui main container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}} message">
+                    <i class="close icon"></i>
+                    {{message | safe}}
+                </div>
+            {% endfor %}
+        {% endif %}
+</div>
+<div class="container">
+  <h3><marquee>Hello, this is Student homepage.Go through the left navigation menu</marquee></h3>
+</div>
+
+{%endblock%}

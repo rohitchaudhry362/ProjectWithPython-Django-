@@ -1,0 +1,33 @@
+{% extends 'base6.html' %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{message.tags}} message">
+            <i class="close icon"></i>
+            {{message | safe}}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  <table class="table">
+  <tr><th>Stream Name</th><th> Edit</th><th>Delete</th></tr>
+  {% for p1 in Cpro1 %}
+
+  <tr>
+    <td><b>{{p1.StreamName}}</b></td>
+    <td> <a href="/Librarian/EditStream1/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-primary" type="button" value="Edit"> </a></td>
+    <td> <a href="/Librarian/DeleteStream1/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-danger" type="button" value="Delete"> </a></td>
+    <td> <a href="/Librarian/AddBook1/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-primary" type="button" value="Add Books"> </a></td>
+    <td> <a href="/Librarian/ShowBook1/?StreamId={{p1.StreamId}}"><input class="btn btn-round btn-primary" type="button" value="Show Books"> </a></td>
+  </tr>
+  {% endfor %}
+    </table>
+<a href="/Librarian/BookCategoryIndex1"><input class="btn btn-round btn-default" type="button" value="Back to categories"> </a>
+</div>
+
+
+{% endblock %}
